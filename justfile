@@ -102,6 +102,14 @@ env-info:
 
 # Run all tests as expected by CI
 ci-test: env-info test-fmt clippy check test test-doc
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if [ -n "$(git status --untracked-files --porcelain)" ]; then
+      >&2 echo 'ERROR: git repo is no longer clean. Make sure compilation and tests artifacts are in the .gitignore, and no repo files are modified.'
+      >&2 echo '######### git status ##########'
+      git status
+      exit 1
+    fi
 
 # Run minimal subset of tests to ensure compatibility with MSRV
 ci-test-msrv: env-info check test
