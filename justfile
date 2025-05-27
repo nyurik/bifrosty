@@ -7,6 +7,7 @@ CRATE_NAME := 'bifrosty'
 # Use `just env-info` to see the current values of RUSTFLAGS and RUSTDOCFLAGS
 export RUSTFLAGS := env('RUSTFLAGS', if env('CI', '') == 'true' {'-D warnings'} else {''})
 export RUSTDOCFLAGS := env('RUSTDOCFLAGS', if env('CI', '') == 'true' {'-D warnings'} else {''})
+export RUST_BACKTRACE := env('RUST_BACKTRACE', if env('CI', '') == 'true' {'1'} else {''})
 
 @_default:
     just --list
