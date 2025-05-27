@@ -1,6 +1,6 @@
 version: 2
 updates:
-  
+
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -15,7 +15,7 @@ updates:
         applies-to: security-updates
         patterns:
           - "*"
-  
+
   # Update Rust dependencies
   - package-ecosystem: cargo
     directory: "/"
