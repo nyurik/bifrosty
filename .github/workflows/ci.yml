@@ -49,9 +49,8 @@ jobs:
           toolchain: ${{ steps.msrv.outputs.value }}
       - run: just ci-test-msrv
         env:
-          # In MSRV, warnings are OK, but `just` cannot conditionally unset them when running ci-test-msrv
-          RUSTFLAGS: ''
-          RUSTDOCFLAGS: ''
+          # Ignore warnings in MSRV. Sadly this cannot be done inside `just ci-test-msrv`
+          CI: ''
 
   coverage:
     name: Code Coverage
