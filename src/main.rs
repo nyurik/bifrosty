@@ -1,3 +1,6 @@
+// Transclude README.md into the crate documentation
+#![doc = include_str!("../README.md")]
+
 use std::error::Error;
 
 use clap::{Parser, Subcommand};
