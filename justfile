@@ -104,7 +104,7 @@ env-info:
 ci-test: env-info test-fmt clippy check test test-doc
 
 # Run minimal subset of tests to ensure compatibility with MSRV
-ci-test-msrv: env-info clippy check test
+ci-test-msrv: env-info check test
 
 # Check if a certain Cargo command is installed, and install it if needed
 [private]
