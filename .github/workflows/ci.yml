@@ -47,10 +47,7 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: ${{ steps.msrv.outputs.value }}
-      - run: just ci-test-msrv
-        env:
-          # Ignore warnings in MSRV. Sadly, this cannot be done inside `just ci-test-msrv`
-          CI: ''
+      - run: just ci_mode=0 ci-test-msrv  # Ignore warnings in MSRV
 
   coverage:
     name: Code Coverage
@@ -74,7 +71,7 @@ jobs:
   # This approach also allows some jobs to be skipped if they are not needed.
   ci-passed:
     if: always()
-    needs: [ test, test-msrv ]
+    needs: [ test, test-msrv, coverage ]
     runs-on: ubuntu-latest
     steps:
       - if: ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}
