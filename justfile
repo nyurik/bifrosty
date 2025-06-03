@@ -105,7 +105,7 @@ semver *args:  (cargo-install 'cargo-semver-checks')
 # Run all unit and integration tests
 test:
     cargo test --workspace --all-targets {{features_flag}}
-    # if crate becomes a lib:   cargo test --doc --workspace {{features_flag}}
+    # if crate becomes a lib:   cargo test --workspace --doc {{features_flag}}
 
 # Test documentation generation
 test-doc: (docs '')
