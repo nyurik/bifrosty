@@ -92,7 +92,7 @@ get-crate-field field package=main_crate:
     cargo metadata --format-version 1 | jq -r '.packages | map(select(.name == "{{package}}")) | first | .{{field}}'
 
 # Get the minimum supported Rust version (MSRV) for the crate
-get-msrv:  (get-crate-field 'rust_version')
+get-msrv package=main_crate:  (get-crate-field 'rust_version' package)
 
 # Find the minimum supported Rust version (MSRV) using cargo-msrv extension, and update Cargo.toml
 msrv:  (cargo-install 'cargo-msrv')
@@ -105,10 +105,10 @@ semver *args:  (cargo-install 'cargo-semver-checks')
 # Run all unit and integration tests
 test:
     cargo test --workspace --all-targets {{features_flag}}
-    # if crate becomes a lib:   cargo test --doc --workspace {{features_flag}}
+    # if crate becomes a lib:   cargo test --workspace --doc {{features_flag}}
 
 # Test documentation generation
-test-doc: (docs '')
+test-doc:  (docs '')
 
 # Test code formatting
 test-fmt:
@@ -138,6 +138,7 @@ assert-git-is-clean:
       >&2 echo "ERROR: git repo is no longer clean. Make sure compilation and tests artifacts are in the .gitignore, and no repo files are modified." ;\
       >&2 echo "######### git status ##########" ;\
       git status ;\
+      git --no-pager diff ;\
       exit 1 ;\
     fi
 
