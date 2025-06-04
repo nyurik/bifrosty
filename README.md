@@ -1,10 +1,10 @@
 # Valhalla data handling in Rust
 
-[![GitHub](https://img.shields.io/badge/github-nyurik/bifrosty-8da0cb?logo=github)](https://github.com/nyurik/bifrosty)
+[![GitHub repo](https://img.shields.io/badge/github-nyurik/bifrosty-8da0cb?logo=github)](https://github.com/nyurik/bifrosty)
 [![crates.io version](https://img.shields.io/crates/v/bifrosty)](https://crates.io/crates/bifrosty)
-[![docs.rs](https://img.shields.io/docsrs/bifrosty)](https://docs.rs/bifrosty)
+[![docs.rs status](https://img.shields.io/docsrs/bifrosty)](https://docs.rs/bifrosty)
 [![crates.io license](https://img.shields.io/crates/l/bifrosty)](https://github.com/nyurik/bifrosty/blob/main/LICENSE-APACHE)
-[![CI build](https://github.com/nyurik/bifrosty/actions/workflows/ci.yml/badge.svg)](https://github.com/nyurik/bifrosty/actions)
+[![CI build status](https://github.com/nyurik/bifrosty/actions/workflows/ci.yml/badge.svg)](https://github.com/nyurik/bifrosty/actions)
 [![Codecov](https://img.shields.io/codecov/c/github/nyurik/bifrosty)](https://app.codecov.io/gh/nyurik/bifrosty)
 
 ## Usage
